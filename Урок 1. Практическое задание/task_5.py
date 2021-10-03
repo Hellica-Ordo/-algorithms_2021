@@ -28,3 +28,19 @@
 
 Задание творческое. Здесь нет жестких требований к выполнению.
 """
+
+class StackOfPlates:
+    def __init__(self, size_of_stack):
+        self.elems = []
+        self.size_of_stack = size_of_stack
+
+    def put_plate(self, el):
+        if len(self.elems) <= len(self.size_of_stack[len(self.size_of_stack) - 1])
+            self.elems.append(el)
+        else:
+            print('Максимальная высота стопки! Начинаю новую.')
+            self.elems.append([])
+            self.elems[len(self.elems)].append(el)
+
+    def remove_plate(self):
+        return self.elems.pop()

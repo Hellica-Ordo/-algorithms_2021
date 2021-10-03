@@ -19,3 +19,49 @@
 Постарайтесь не использовать ф-ции min() и sort() и другие ф-ции!
 Подход должен быть максимально алгоритмическим.
 """
+
+import random
+
+my_list = random.sample(range(0, 100), 10)
+
+def min_value_square(my_list):                  #O(n^2)
+    for i in my_list:                           #O(n)
+        n = 0                                   #O(1)
+        min_value = 100                         #O(1)
+        while n < (len(my_list) - 1):           #O(n)
+            if my_list[n] <= min_value:
+                min_value = my_list[n]          #O(1)
+            n += 1                              #O(1)
+    return min_value                            #O(1)
+
+print(my_list)
+print(min_value_square(my_list))
+
+def min_value_linear(my_list):                  #O(n)
+        n = 0                                   #O(1)
+        min_value = 100                         #O(1)
+        while n < (len(my_list) - 1):           #O(n)
+            if my_list[n] <= min_value:
+                min_value = my_list[n]          #O(1)
+                n += 1                          #O(1)
+            else:
+                n += 1                          #O(1)
+        return min_value
+
+print(min_value_linear(my_list))
+
+
+
+# def min_square(my_list):
+#     list_2 = my_list
+#     while True:
+#             if my_list[0] <= my_list[1]:
+#                 list_2 = my_list.remove[1]
+#             elif my_list[0] > my_list[1]:
+#                 list_2 = my_list.remove[0]
+#     # if my_list[0] <= my_list[1]:
+#     #     return my_list[0]
+#     # else:
+#     #     return my_list[1]
+#     return list_2
+

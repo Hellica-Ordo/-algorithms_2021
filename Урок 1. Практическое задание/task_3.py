@@ -20,3 +20,26 @@
 
 Задание творческое. Здесь нет жестких требований к выполнению.
 """
+
+import heapq, operator
+
+companies = {'Horns and Hoofs': 9000, 'Skull and Bones': 15000, 'Today and Tomorrow': 3500, 'Cloak and Dagger': 11000, 'Infinity and Beyond': 23700}
+
+#Способ 1       #O(n)
+print(heapq.nlargest(3, companies.items(), key=operator.itemgetter(1)))     #O(n)
+
+#Способ 2       #O(n log n)
+list_companies = list(companies.items())            #O(n)
+list_companies.sort(key = lambda i : i[1])          #O(n log n)
+print(list_companies[2:])                           #O(b-a)
+
+#Способ 3       #O(n^2)
+def keywithmaxval(c):
+    k = sorted(c.values())[::-1]                    #O(n log n)
+    return k[:3]
+
+for key in companies.keys():                        #O(n)
+    if companies[key] in keywithmaxval(companies):  #O(n)
+        print(key, companies[key])                  #O(1)
+
+#Вывод: из всех решений способ 1 является наиболее оптимальным как по сложности О, так и по лаконичности кода. Самым худшим является способ 3.
